@@ -1,0 +1,28 @@
+def calculate_cable_length(length1, length2):
+    cable_length = length1 * 10 * length2
+    return cable_length
+
+def main():
+    while True:
+        try:
+            dimension1 = float(input("Enter Room Dimension 1: "))
+            dimension2 = float(input("Enter Room Dimension 2: "))
+            #TODO Add Diffrent Materials for W/m2
+            if dimension1 == 0.0 or dimension2 == 0.0:
+                print("Error: Cannot divide by 0. Please try again.")
+                continue
+
+            print("Cable Calculation for Concrete: 100W/M2, Installation Spacing: 10cm")
+
+            cable_length = calculate_cable_length(dimension1, dimension2)
+            if cable_length is not None:
+                print(f"{cable_length} meters of cable needed")
+                break
+            else:
+                continue
+
+        except ValueError:
+            print("Error: Input must be a valid number. Please try again.")
+
+if __name__ == "__main__":
+    main()
